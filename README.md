@@ -1,4 +1,6 @@
-# IS1-Spotify – music catalogue web app (Spring Boot)
+# spring-music-catalogue
+
+> music catalogue web app (Spring Boot)
 
 Final project for **Ingeniería de Software I** (2016-II) at Universidad Católica
 San Pablo: a small Spotify-like catalogue built with Spring Boot 1.4,
