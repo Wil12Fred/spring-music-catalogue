@@ -20,10 +20,10 @@ public interface AlbumRepositorio extends Repository<Album, Long> {
 	@Query("SELECT al FROM Album al WHERE al.nombre =:nombre")
 	List<Album> buscarPorNombre(@Param("nombre") String nombre);
 	
-	@Query("SELECT al FROM Artista al WHERE al.fecha >=:fecha")
+	@Query("SELECT al FROM Album al WHERE al.fecha >=:fecha")
 	List<Album> buscarPorFecha(@Param("fecha") Date fecha);
 
-	@Query("SELECT al FROM Artista al WHERE al.activo =true")
+	@Query("SELECT al FROM Album al WHERE al.activo =true")
 	List<Album> buscarPorEstado();
 	Album a = new Album();
 	

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
+import app.dominio.Album;
 import app.dominio.Artista;
 //import app.dominio.Album;
 
@@ -34,7 +35,7 @@ public interface ArtistaRepositorio extends Repository<Artista, Long>{
 	List<Artista> buscarPorEstado();
 	
 	//Seleciona la collection de albmums por nombre de artista
-	@Query("SELECT a.albums FROM Artista a WHERE a.nombre like '%:nombre%'")
-	List<Object[]> buscarAlbums(@Param("nombre") String nombre);
+	@Query("SELECT al FROM Artista a JOIN a.albums al WHERE a.nombre like CONCAT('%', :nombre, '%')")
+	List<Album> buscarAlbums(@Param("nombre") String nombre);
 	
 }

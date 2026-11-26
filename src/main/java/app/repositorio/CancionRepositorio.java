@@ -38,6 +38,6 @@ public interface CancionRepositorio extends Repository<Cancion, Long>{
 	@Query("SELECT c FROM Cancion c WHERE c.fecha > :fecha")
 	Collection<Cancion> cancionesDespuesDe(@Param("fecha") Date fecha);
 
-	@Query("SELECT c FROM Cancion c order by num_reproducciones")
+	@Query("SELECT c FROM Cancion c ORDER BY c.numReproducciones DESC NULLS LAST")
 	List<Cancion> cancionTop();
 }
