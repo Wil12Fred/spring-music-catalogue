@@ -22,6 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<!-- 9.4 (the Boot 1.4 default) cannot log in to PostgreSQL 14+ (SCRAM-SHA-256) -->
+		<postgresql.version>42.7.4</postgresql.version>
 	</properties>
 
 	<dependencies>
