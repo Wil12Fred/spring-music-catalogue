@@ -18,7 +18,7 @@ import app.servicio.AdministradorServicio;
 public class AdministradorControlador {
 	@Autowired
 	AdministradorServicio administradorServicio;
-	@RequestMapping(value = "/admnistrador", method = RequestMethod.POST)
+	@RequestMapping(value = "/administrador", method = RequestMethod.POST)
 	String guardarAdmnistrador(@ModelAttribute Administrador admnistrador, ModelMap model) {
 		System.out.println("guardando: " + admnistrador.getIdAdministrador());
 		administradorServicio.save(admnistrador);

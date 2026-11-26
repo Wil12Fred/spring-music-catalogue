@@ -37,12 +37,12 @@ public class ValoracionControlador {
 		String MostrarValoracion(@RequestParam(required = false) Long id, ModelMap model) {
 			if (id != null) {
 				Valoracion Valoracion= ValoracionServicio.get(id);
-				model.addAttribute("Valoracion", Valoracion);
-				return "Valoracion";
+				model.addAttribute("valoracion", Valoracion);
+				return "valoracion";
 			} else {
 				List<Valoracion> Valoracions = ValoracionServicio.getTodos();
-				model.addAttribute("Valoracions", Valoracions);
-				return "Valoracions";
+				model.addAttribute("valoraciones", Valoracions);
+				return "valoraciones";
 			}
 			
 		}
