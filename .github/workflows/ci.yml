@@ -27,3 +27,11 @@ jobs:
           java-version: "8"
           cache: maven
       - run: ./mvnw -B -ntp verify
+      - name: Start the packaged app and request two pages
+        run: |
+          java -jar target/app-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:8080/ && break; sleep 2; done
+          grep -m1 "Started SpotifyApplication" app.log
+          curl -s -o /dev/null -w "GET / -> %{http_code}\n" http://localhost:8080/
+          curl -s -X POST -d nombre=Soda+Stereo -o /dev/null -w "POST /artista -> %{http_code}\n" http://localhost:8080/artista
+          curl -s http://localhost:8080/artista | grep -o "<td>Soda Stereo</td>"
