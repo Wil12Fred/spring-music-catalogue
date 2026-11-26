@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import app.dominio.Administrador;
 import app.dominio.Album;
@@ -27,6 +28,7 @@ import app.repositorio.ValoracionRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class SpotifyApplicationTests {
 
 	@Autowired
@@ -60,7 +62,7 @@ public class SpotifyApplicationTests {
 		album1.setFecha(new Date());
 		album1.setEstado(true);
 		
-//		album1.setArtista(artista1);
+		album1.setArtista(artista1);
 		//artista1.setAlbum(album1);
 		Artista a1= artistaRepositorio.save(artista1);
 		Album al1=albumRepositorio.save(album1);
