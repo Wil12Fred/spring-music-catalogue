@@ -34,14 +34,12 @@ public class CancionServicio {
 	}
 
 	public void save(Cancion cancion) {
-		String name = cancion.getNombre();
-		if(find_cancion(name)==false)
+		// Una cancion nueva no puede repetir el nombre de otra; la misma cancion
+		// (mismo id) si se puede volver a guardar con sus cambios.
+		Cancion existente = CancionRepositorioo.buscarPorNombre(cancion.getNombre());
+		if(existente==null || existente.getIdCancion().equals(cancion.getIdCancion()))
 		{
-			CancionRepositorioo.save(cancion);			
-		}
-		else
-		{
-			CancionRepositorio.setFixedCancion(name);
+			CancionRepositorioo.save(cancion);
 		}
 	}
 
